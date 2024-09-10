@@ -296,6 +296,66 @@ document.addEventListener('keyup', event => {
     }
 });
 
+// Move piece left
+function moveLeft() {
+    if (!gameOver) {
+        move(-1);
+    }
+}
+
+// Move piece right
+function moveRight() {
+    if (!gameOver) {
+        move(1);
+    }
+}
+
+// Rotate piece
+function rotatePiece() {
+    if (!gameOver) {
+        rotate();
+    }
+}
+
+// Move piece down
+function moveDown() {
+    if (!gameOver) {
+        piece.y++;
+        if (collision()) {
+            piece.y--;
+            solidifyPiece();
+            removeFullRows();
+            piece = randomPiece();
+            if (collision()) {
+                gameOver = true;
+                endGame();
+            }
+        }
+        dropCounter = 0;
+    }
+}
+
+// Event listeners for keyboard controls (if using in addition to touch)
+document.addEventListener('keydown', event => {
+    if (gameOver) return;
+
+    switch(event.key) {
+        case 'ArrowLeft':
+            moveLeft();
+            break;
+        case 'ArrowRight':
+            moveRight();
+            break;
+        case 'ArrowDown':
+            moveDown();
+            break;
+        case 'ArrowUp':
+            rotatePiece();
+            break;
+    }
+});
+
+
 // Resize canvas to fit container and maintain aspect ratio
 function resizeCanvas() {
     const gameWrapper = document.querySelector('.game-wrapper');
