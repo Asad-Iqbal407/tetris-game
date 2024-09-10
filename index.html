@@ -86,6 +86,27 @@
         #start-button:hover {
             background-color: #ffaa00;
         }
+        .controls {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            gap: 5px;
+        }
+        .control-button {
+            width: 60px;
+            height: 60px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            color: #121212;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .control-button:active {
+            background-color: #ffaa00;
+        }
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
@@ -99,6 +120,11 @@
             }
             #start-button {
                 width: 120px; /* Adjust button width for smaller screens */
+            }
+            .control-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -121,6 +147,12 @@
         </div>
         <div class="button-container">
             <button id="start-button" onclick="startGame()">Start Game</button>
+        </div>
+        <div class="controls">
+            <button class="control-button" onclick="moveLeft()">←</button>
+            <button class="control-button" onclick="rotatePiece()">⟳</button>
+            <button class="control-button" onclick="moveRight()">→</button>
+            <button class="control-button" onclick="moveDown()">↓</button>
         </div>
         <div id="game-over">Game Over!</div>
     </div>
