@@ -296,17 +296,20 @@ document.addEventListener('keyup', event => {
     }
 });
 
+// Resize canvas to fit container and maintain aspect ratio
 function resizeCanvas() {
     const gameWrapper = document.querySelector('.game-wrapper');
     const wrapperWidth = gameWrapper.clientWidth;
     const wrapperHeight = gameWrapper.clientHeight;
-    
+
+    // Adjust the canvas to fit the screen, maintaining a 2:1 aspect ratio
     const size = Math.min(wrapperWidth, wrapperHeight / 2);
     canvas.width = size;
     canvas.height = size * 2;
 
     ctx.scale(size / COLS, size / COLS);
 }
+
 
 // Initialize the game
 init();
