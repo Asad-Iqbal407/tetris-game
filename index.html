@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-size: 2rem;
+            text-align: center;
+            color: #ffcc00;
+        }
+
+        .game-wrapper {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-height: 70vh;
+        }
+
+        canvas {
+            background-color: #000;
+            border: 2px solid #ffcc00;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .stats-container > div {
+            text-align: center;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        #game-over {
+            display: none;
+            color: #ff4c4c;
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+
+        #start-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #121212;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #start-button:hover {
+            background-color: #ffaa00;
+        }
+
+        @media (max-height: 600px) {
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            .stats-container {
+                margin: 10px 0;
+            }
+
+            .button-container {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Tetris Game</h1>
+        <div class="game-wrapper">
+            <canvas id="tetris"></canvas>
+        </div>
+        <div class="stats-container">
+            <div>
+                <strong>Score</strong>
+                <p id="score">0</p>
+            </div>
+            <div>
+                <strong>Level</strong>
+                <p id="level">1</p>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="start-button" onclick="startGame()">Start Game</button>
+        </div>
+        <div id="game-over">Game Over!</div>
+    </div>
+    <script src="tetris.js"></script>
+</body>
+</html>
