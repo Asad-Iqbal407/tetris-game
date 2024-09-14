@@ -1,0 +1,62 @@
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+/* Game Container */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Canvas Styling */
+canvas {
+    border: 2px solid #fff;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    touch-action: none; /* Prevent default touch behaviors */
+    background-color: #111;
+}
+
+/* Score Display */
+.score {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        height: auto;
+    }
+
+    .game-container {
+        padding: 15px;
+    }
+
+    .score {
+        font-size: 1.2em;
+    }
+}
